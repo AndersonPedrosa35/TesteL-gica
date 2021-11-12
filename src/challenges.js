@@ -48,7 +48,6 @@ function catAndMouse(mouse, cat1, cat2) {
 }
 
 // Desafio 8
-
 function fizzBuzz(array) {
   let arrayIndx = [];
   array.forEach((number) => {
@@ -68,34 +67,28 @@ function fizzBuzz(array) {
 
 // Desafio 9
 function encode(string) {
-  let array = ' ';
-  for (let index = 0; index < string.length; index += 1) {
-    if (string[index] === 'a') {
-      array[index] += '1';
-    } else if (string[index] === 'e') {
-      array[index] += '2';
-    } else if (string[index] === 'i') {
-      array[index] += '3';
-    } else if (string[index] === 'o') {
-      array[index] += '4';
-    } else if (string[index] === 'u') {
-      array[index] += '5';
-    } else {
-      array[index] += string[index];
-    }
-  } return array;
-} console.log(encode('hi there'));
+  const convertString = {
+    a: '1',
+    e: '2',
+    i: '3',
+    o: '4',
+    u: '5',
+  };
+  return string.replace(/[aeiou]+/g, (e) => convertString[e]);
+}
+console.log(encode('hi there'));
 
 function decode(string) {
-  let array = '';
-  array = string.replace('a', '1');
-  array = string.replace('e', '2');
-  array = string.replace('i', '3');
-  array = string.replace('o', '4');
-  array = string.replace('u', '5');
-  return array;
+  const convertString = {
+    1: 'a',
+    2: 'e',
+    3: 'i',
+    4: 'o',
+    5: 'u',
+  };
+  return string.replace(/[12345]+/g, (e) => convertString[e]);
 }
-console.log(decode('hi there'));
+console.log(decode('h3 th2r2'));
 
 module.exports = {
   calcArea,
